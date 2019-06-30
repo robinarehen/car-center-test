@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Car Center Test</title>
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons"
+	rel="stylesheet">
+<link rel="stylesheet"
+	href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+</head>
+<body>
+
+	<header>
+		<nav>
+			<div class="nav-wrapper container">
+				<a href="#" class="brand-logo center">Car Center</a>
+				<ul id="nav-mobile" class="right hide-on-med-and-down">
+					<li><a th:href="@{/}">Home</a></li>
+					<li><a th:href="@{/cliente/crear}">Sing Up</a></li>
+				</ul>
+			</div>
+		</nav>
+	</header>
+
+	<div class="container">
+		
+		<div class="row card-panel">
+			<div class="col s12">
+				<h3 class="center">Login</h3>
+			</div>
+			<div class="col s12 m6 offset-m3">
+				<form th:action="@{/login}" method="post">
+					<div class="row">
+						<div class="input-field col s12">
+							<input type="text" id="text_username" name="username">
+							<label for="text_username">User Name</label>
+						</div>
+					</div>
+					<div class="row">
+						<div class="input-field col s12">
+							<input type="password" id="text_password" name="password">
+							<label for="text_password">Password</label>
+						</div>
+					</div>
+					<div class="row">
+						<div class="input-filed col s12">
+							<button type="submit" name="button-submit" class="btn">
+								<i class="material-icons right">lock</i> Login
+							</button>
+						</div>
+					</div>
+				</form>
+			</div>
+		</div>
+	</div>
+
+	<script
+		src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+</body>
+</html>
