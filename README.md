@@ -32,6 +32,6 @@ Prueba para el cargo de desarrollador Java
 
 ## Data Inicial
 
-1. En la ruta  ```car-center-test\src\main\resources``` se encuentra un archivo de nobre **data.sql** en el cual se ingresa la información necesaria para registrar un cliente, como lo es: **genero**, **Ciudad**, **Roles**.
+1. En la ruta  ```car-center-test\src\main\resources``` se encuentra un archivo de nombre **data.sql** en el cual se ingresa la información necesaria para registrar un cliente, como lo es: **genero**, **Ciudad**, **Roles**.
 
-2. en ese mismo se encuentra un usuario por defecto **rarellano** con clave **abc123abc** la cual esta cifrada.
+2. en ese mismo archivo se encuentra un usuario por defecto **rarellano** con clave **abc123abc** la cual esta cifrada.
