@@ -26,4 +26,6 @@ Prueba para el cargo de desarrollador Java
 1. clonar el proyecto o descargara la carpeta **car-center-test**.
 2. mediante la consola o terminal ingresar a la carpeta y ejecutar el comando  **mvn clean package** para que sean descargadas las librerias necesarias para el proyeto mediante **MAVEN**
 3. dentro de la carpeta ejecutar el comando **mvn spring-boot:run** para iniciar el proyecto, si termina sin error se podra ingresar a la siguiente url http://localhost:8080/ el puerto **8080** debe estar libre.
-
+4. Para registrar un cliente se debe ingresar a la opción **Sing up** http://localhost:8080/cliente/crear
+5. Para ingresar a la aplicación se debe ingresar a la opción **Login** http://localhost:8080/login
+6. Un vez se ha realizado el registro y login el cliente puede actualizar sus datos en la opción **Profile** http://localhost:8080/cliente/modificar
