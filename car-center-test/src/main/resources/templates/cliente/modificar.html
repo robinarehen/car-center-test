@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Crear Cliente</title>
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons"
+	rel="stylesheet">
+<link rel="stylesheet"
+	href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+</head>
+<body>
+
+	<header>
+		<nav>
+			<div class="nav-wrapper container">
+				<a th:href="@{/dashboard}" class="brand-logo center">Car Center</a>
+				<ul id="nav-mobile" class="right hide-on-med-and-down">
+					<li><a th:href="@{/cliente/modificar}">Profile</a></li>
+					<li><a th:href="@{/logout}">Logout</a></li>
+				</ul>
+			</div>
+		</nav>
+	</header>
+	
+	<div class="container">
+		<div class="row">
+			<div class="col s12">
+				<h3 class="center">Update Information</h3>
+			</div>
+		</div>
+		
+		<div class="row">
+			<div class="col s12">
+				<form th:action="@{/cliente/modificar}" method="post" th:object="${CLIENTE}">
+					<input type="hidden" th:field="*{idCliente}">
+					<input type="hidden" th:field="*{datosPersona.idPersona}">
+					<div class="row">
+						<div class="input-field col s12 m4">
+							<select th:field="*{ciudad}">
+								<option th:each="ciudades : ${CIUDADES}" 
+								th:value="${ciudades.idCiudad}" th:text="${ciudades.nombre}" 
+								th:selected="${ID_CIUDAD == ciudades.idCiudad}"></option>
+							</select>
+							<label>Ciudad</label>
+						</div>
+						<div class="input-field col s12 m4">
+							<select th:field="*{datosPersona.tipoIdentificacion}">
+								<option th:each="tipoIdenti : ${TIPOS_IDENTIFICACION}" 
+								th:value="${tipoIdenti.idTipoIdentificacion}" th:text="${tipoIdenti.nombre}" 
+								th:selected="${ID_IDENTIFICACION == tipoIdenti.idTipoIdentificacion}"></option>
+							</select>
+							<label>Tipo Identificación</label>
+						</div>
+						<div class="input-field col s12 m4">
+							<select th:field="*{datosPersona.tipoGenero}">
+								<option th:each="tipoGenero : ${TIPOS_GENERO}" 
+								th:value="${tipoGenero.idTipoGenero}" th:text="${tipoGenero.nombre}" 
+								th:selected="${ID_GENERO == tipoGenero.idTipoGenero}"></option>
+							</select>
+							<label>Genero</label>
+						</div>
+					</div>
+					<div class="row">
+						<div class="input-field col s12 m6">
+							<input type="text" id="text_identificacion" th:field="*{datosPersona.numeroIdentificacion}">
+							<label for="text_identificacion">Número Identificación</label>
+						</div>
+						<div class="input-field col s12 m6">
+							<input type="text" id="text_nombre" th:field="*{datosPersona.nombres}">
+							<label for="text_nombre">Nombres</label>
+						</div>
+					</div>
+					<div class="row">
+						<div class="input-field col s12 m6">
+							<input type="text" id="text_pri_ape" th:field="*{datosPersona.primerApellido}">
+							<label for="text_pri_ape">Primer Apellido</label>
+						</div>
+						<div class="input-field col s12 m6">
+							<input type="text" id="text_seg_ape" th:field="*{datosPersona.segundoApellido}">
+							<label for="text_seg_ape">Segundo Apellido</label>
+						</div>
+					</div>
+					<div class="row">
+						<div class="input-field col s12 m6">
+							<input type="text" id="text_direccion" th:field="*{direccion}">
+							<label for="text_direccion">Dirección</label>
+						</div>
+						<div class="input-field col s12 m6">
+							<input type="number" id="text_telefono" th:field="*{telefono}">
+							<label for="text_telefono">Teléfono</label>
+						</div>
+					</div>
+					<div class="row">
+						<div class="input-field col s12 m6">
+							<input type="number" id="text_celular" th:field="*{celular}">
+							<label for="text_celular">Celular</label>
+						</div>
+						<div class="input-field col s12 m6">
+							<input type="email" id="text_email" th:field="*{email}">
+							<label for="text_email">E-mail</label>
+						</div>
+					</div>
+					<div class="row">
+						<div class="input-filed col s12 m3">
+							<button type="submit" name="button-submit" class="btn">
+								<i class="material-icons right">send</i> Update
+							</button>
+						</div>
+					</div>
+				</form>
+			</div>
+		</div>
+	</div>
+
+	<footer>		
+		<div id="modal-message" class="modal">
+			<div class="modal-content">
+				<h4>Update Successfully</h4>
+				<p th:if=${CREATED}>
+					The Information was Updated
+				</p>
+			</div>
+			<div class="modal-footer">
+				<a href="#!" class="modal-close waves-effect waves-green btn-flat">Agree</a>
+			</div>
+		</div>
+	</footer>
+
+	<script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+	<script
+		src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+	<script type="text/javascript" src="../../js/materialize.init.js"></script>
+</body>
+</html>

@@ -1,5 +1,7 @@
 package com.asesoftware.carcentertest.model;
 
+import java.util.List;
+
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -9,19 +11,17 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
-import javax.persistence.Transient;
 
 @Entity
 @Table(name = "USUARIOS")
 public class Usuario {
 
-	private static final String STATUS_ACTIVO = "ACTIVO";
-
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Integer idUsuaio;
+	private Integer idUsuario;
 
 	@JoinColumn(name = "id_persona", unique = true)
 	@OneToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
@@ -36,21 +36,24 @@ public class Usuario {
 
 	@Column(nullable = false)
 	private String password;
-	
-	@Transient
+
+	@Column(nullable = false)
 	private boolean enabled;
+
+	@OneToMany(mappedBy = "usuario", fetch = FetchType.EAGER)
+	private List<RolUsuario> rolUsuarios;
 
 	public Usuario() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
 
-	public Integer getIdUsuaio() {
-		return idUsuaio;
+	public Integer getIdUsuario() {
+		return idUsuario;
 	}
 
-	public void setIdUsuaio(Integer idUsuaio) {
-		this.idUsuaio = idUsuaio;
+	public void setIdUsuario(Integer idUsuario) {
+		this.idUsuario = idUsuario;
 	}
 
 	public DatosPersona getDatosPersona() {
@@ -86,12 +89,19 @@ public class Usuario {
 	}
 
 	public boolean isEnabled() {
-		
-		if (this.tipoEstado != null) {
-			this.enabled = (this.tipoEstado.getNombre().toUpperCase().equals(STATUS_ACTIVO));
-		}
-		
 		return enabled;
+	}
+
+	public void setEnabled(boolean enabled) {
+		this.enabled = enabled;
+	}
+
+	public List<RolUsuario> getRolUsuarios() {
+		return rolUsuarios;
+	}
+
+	public void setRolUsuarios(List<RolUsuario> rolUsuarios) {
+		this.rolUsuarios = rolUsuarios;
 	}
 
 }

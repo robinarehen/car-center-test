@@ -12,18 +12,18 @@ public class CarCenterWebController {
 
 	@RequestMapping(value = { "/", "/index" })
 	public String getIndex() {
-
+		
 		return "index";
 	}
-	
+
 	@RequestMapping("/login")
-	public String getLogin(Model model) {
+	public String getLogin() {
 
 		return "login";
 	}
-	
+
 	@RequestMapping("/logout")
-	public String getLogout(Model model, HttpServletRequest request) {
+	public String getLogout(HttpServletRequest request) {
 
 		SecurityContextLogoutHandler logoutHandler = new SecurityContextLogoutHandler();
 		
@@ -31,10 +31,9 @@ public class CarCenterWebController {
 
 		return "login";
 	}
-	
+
 	@RequestMapping("/dashboard")
 	public String getDashBoard(Model model) {
-
 		return "dashboard";
 	}
 }

@@ -15,10 +15,6 @@
 		<nav>
 			<div class="nav-wrapper container">
 				<a th:href="@{/}" class="brand-logo center">Car Center</a>
-				<ul id="nav-mobile" class="right hide-on-med-and-down">
-					<li><a th:href="@{/cliente/crear}">Sing Up</a></li>
-					<li><a th:href="@{/login}">Login</a></li>
-				</ul>
 			</div>
 		</nav>
 	</header>
@@ -26,11 +22,18 @@
 	<div class="container">
 		<div class="section row">
 			<div class="col s12">
-				<p>
-					<strong>CAR CENTER</strong> es un taller que atiende a sus clientes a nivel nacional, 
-					prestando el servicio de reparación de vehículos con mecánicos altamente calificados 
-					y proporcionando todos los repuestos necesarios en la reparación.
-				</p>
+				<h3 class="red-text center">Something was wrong</h3>
+			</div>
+			<div class="col s12">
+				<h4>
+					Status: <span  th:text="${status}"></span>
+				</h4>
+				<h4>
+					Message: <span th:text="${message}"></span>
+				</h4>
+				<button type="button" class="btn" onclick="window.history.back();">
+					<i class="material-icons right">arrow_back</i> Go Back
+				</button>
 			</div>
 		</div>
 	</div>

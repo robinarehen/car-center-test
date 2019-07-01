@@ -6,4 +6,5 @@ import com.asesoftware.carcentertest.model.Usuario;
 
 public interface UsuarioRepository extends JpaRepository<Usuario, Integer> {
 
+	Usuario findByUsername(String username);
 }

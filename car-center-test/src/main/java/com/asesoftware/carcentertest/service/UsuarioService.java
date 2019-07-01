@@ -1,5 +1,6 @@
 package com.asesoftware.carcentertest.service;
 
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -17,7 +18,16 @@ public class UsuarioService {
 		this.repository = repository;
 	}
 	
-	public Usuario create(Usuario entity) {		
+	@Transactional
+	public Usuario create(Usuario entity) {
+		
+		entity.setPassword(new BCryptPasswordEncoder().encode(entity.getUsername()));
+		entity.setEnabled(true);
+		
 		return this.repository.save(entity);
+	}
+	
+	public Usuario getUsuario(String username) {
+		return this.repository.findByUsername(username);
 	}
 }

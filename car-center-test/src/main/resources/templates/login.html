@@ -14,7 +14,7 @@
 	<header>
 		<nav>
 			<div class="nav-wrapper container">
-				<a href="#" class="brand-logo center">Car Center</a>
+				<a th:href="@{/}" class="brand-logo center">Car Center</a>
 				<ul id="nav-mobile" class="right hide-on-med-and-down">
 					<li><a th:href="@{/}">Home</a></li>
 					<li><a th:href="@{/cliente/crear}">Sing Up</a></li>
@@ -31,6 +31,11 @@
 			</div>
 			<div class="col s12 m6 offset-m3">
 				<form th:action="@{/login}" method="post">
+					<div class="row" th:if="${param.error}">
+						<div class="col s12">
+							<h5 class="red-text">User Name or Password was wrong</h5>
+						</div>
+					</div>
 					<div class="row">
 						<div class="input-field col s12">
 							<input type="text" id="text_username" name="username">
