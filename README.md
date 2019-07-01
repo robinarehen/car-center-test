@@ -29,3 +29,9 @@ Prueba para el cargo de desarrollador Java
 4. Para registrar un cliente se debe ingresar a la opción **Sing up** http://localhost:8080/cliente/crear
 5. Para ingresar a la aplicación se debe ingresar a la opción **Login** http://localhost:8080/login
 6. Un vez se ha realizado el registro y login el cliente puede actualizar sus datos en la opción **Profile** http://localhost:8080/cliente/modificar
+
+## Data Inicial
+
+1. En la ruta  ```car-center-test\src\main\resources``` se encuentra un archivo de nobre **data.sql** en el cual se ingresa la información necesaria para registrar un cliente, como lo es: **genero**, **Ciudad**, **Roles**.
+
+2. en ese mismo se encuentra un usuario por defecto **rarellano** con clave **abc123abc** la cual esta cifrada.
