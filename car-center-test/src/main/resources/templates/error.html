@@ -11,13 +11,7 @@
 </head>
 <body>
 
-	<header>
-		<nav>
-			<div class="nav-wrapper container">
-				<a th:href="@{/}" class="brand-logo center">Car Center</a>
-			</div>
-		</nav>
-	</header>
+	<header th:replace="index :: menu-index"></header>
 
 	<div class="container">
 		<div class="section row">

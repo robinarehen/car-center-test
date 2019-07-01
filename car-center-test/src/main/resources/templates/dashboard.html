@@ -14,22 +14,50 @@
 	<header>
 		<nav>
 			<div class="nav-wrapper container">
-				<a th:href="@{/dashboard}" class="brand-logo center">DashBoard - Car Center</a>
+			
 				<div sec:authorize="hasRole('ROLE_ADMIN')">
+					<a th:href="@{/dashboard}" class="brand-logo hide-on-med-and-down">
+						Car Center - <strong>Administrador</strong>
+					</a>
+					<a th:href="@{/dashboard}" class="brand-logo sidenav-trigger left">
+						Administrador
+					</a>
+					<a href="#" data-target="slide-out" class="sidenav-trigger right"><i class="material-icons">menu</i></a>
 					<ul id="nav-mobile" class="right hide-on-med-and-down">
-						<li><a href="#">Admin</a></li>
+						<li><a th:href="@{/logout}">Logout</a></li>
+					</ul>
+					<ul id="slide-out" class="sidenav">
 						<li><a th:href="@{/logout}">Logout</a></li>
 					</ul>
 				</div>
+				
 				<div sec:authorize="hasRole('ROLE_MECANICO')">
+					<a th:href="@{/dashboard}" class="brand-logo">
+						Car Center - <strong>Mecanico</strong>
+					</a>
 					<ul id="nav-mobile" class="right hide-on-med-and-down">
-						<li><a href="#">Mecanico</a></li>
 						<li><a th:href="@{/logout}">Logout</a></li>
 					</ul>
 				</div>
-				<div sec:authorize="hasRole('ROLE_CLIENTE')">
+				
+				<div sec:authorize="hasRole('ROLE_CLIENTE')" th:fragment="menu-cliente">
+					<a th:href="@{/dashboard}" class="brand-logo hide-on-med-and-down">
+						Car Center - <strong>Cliente</strong>
+					</a>
+					<a th:href="@{/dashboard}" class="brand-logo sidenav-trigger left">
+						Cliente
+					</a>
+					<a href="#" data-target="slide-out" class="sidenav-trigger right"><i class="material-icons">menu</i></a>					
 					<ul id="nav-mobile" class="right hide-on-med-and-down">
-						<li><a th:href="@{/cliente/modificar}">Profile</a></li>
+						<li><a th:href="@{/cliente/modificar}">Perfil</a></li>
+						<li><a th:href="@{/cliente/vehivulos}">Vehículos</a></li>
+						<li><a th:href="@{/cliente/citas}">Citas</a></li>
+						<li><a th:href="@{/logout}">Logout</a></li>
+					</ul>
+					<ul id="slide-out" class="sidenav">
+						<li><a th:href="@{/cliente/modificar}">Perfil</a></li>
+						<li><a th:href="@{/cliente/vehivulos}">Vehículos</a></li>
+						<li><a th:href="@{/cliente/citas}">Citas</a></li>
 						<li><a th:href="@{/logout}">Logout</a></li>
 					</ul>
 				</div>
@@ -45,7 +73,8 @@
 		</div>
 	</div>
 
-	<script
-		src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+	<script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+	<script type="text/javascript" src="js/materialize.init.js"></script>
 </body>
 </html>
